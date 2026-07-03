@@ -45,7 +45,7 @@ export const HeroSection = () => {
   }, { scope: containerRef });
 
   // Split text into spans for animation
-  const title = "PREMIUM".split('');
+  const title = "MOTION".split('');
 
   return (
     <section 
@@ -63,7 +63,7 @@ export const HeroSection = () => {
           ))}
         </h1>
         <p className="hero-sub text-xl md:text-2xl text-white/60 font-sans mt-4 max-w-lg mx-auto">
-          Scroll down to experience the <span className="text-white font-medium">award-winning</span> journey.
+          Pushing the boundaries of web experiences through <span className="text-white font-medium">code and motion.</span>
         </p>
       </div>
 

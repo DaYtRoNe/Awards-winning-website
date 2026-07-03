@@ -6,13 +6,16 @@ import { useImageSequence } from '../hooks/useImageSequence';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const SCROLL_DISTANCE = 6000; // px of scroll to play the full sequence
+
 export const ScrollVideo = () => {
   const containerRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   
-  const frameCount = 120;
-  const { images } = useImageSequence(frameCount, '/frames', 'svg');
+  // 300 frames from ezgif
+  const frameCount = 300;
+  const { images } = useImageSequence(frameCount, '/frames', 'jpg');
 
   // Draw first frame when images load
   useEffect(() => {
@@ -40,9 +43,10 @@ export const ScrollVideo = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: "+=3000", // 3000px of scrolling
+        end: "+=" + SCROLL_DISTANCE,
         pin: true,
         scrub: 0.5,
+        refreshPriority: -2, // After hero (no pin), before horizontal (-3)
       },
       onUpdate: () => {
         ctx.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
@@ -50,18 +54,18 @@ export const ScrollVideo = () => {
       }
     });
 
-    // Animate overlay text based on scroll
+    // Animate overlay text synced with the SAME scroll distance
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: "+=3000",
+        end: "+=" + SCROLL_DISTANCE,
         scrub: 0.5,
       }
     });
 
-    tl.to(textRef.current, { opacity: 1, y: -50, duration: 1 }, 0.2) // Show around 20%
-      .to(textRef.current, { opacity: 0, y: -100, duration: 1 }, 0.6); // Hide around 60%
+    tl.to(textRef.current, { opacity: 1, y: -50, duration: 1 }, 0.2)
+      .to(textRef.current, { opacity: 0, y: -100, duration: 1 }, 0.6);
 
   }, { scope: containerRef, dependencies: [images] });
 
@@ -85,7 +89,7 @@ export const ScrollVideo = () => {
             Perfect Sync.
           </h2>
           <p className="text-xl md:text-2xl text-white/80 font-sans leading-relaxed">
-            Scroll-driven playback using WebCodecs or image sequences provides frame-perfect precision without any video jitter.
+            Frame-by-frame rendering gives you unparalleled control over the scroll experience.
           </p>
         </div>
       </div>

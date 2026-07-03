@@ -50,7 +50,7 @@ export const Navbar = () => {
       
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#" className="text-2xl font-display font-bold tracking-tighter">
-          awwwards<span className="text-primary">.</span>
+          KINETIC<span className="text-primary">.</span>
         </a>
         
         <nav className="hidden md:flex space-x-8">

@@ -5,6 +5,24 @@ import { CustomCursor } from './components/CustomCursor';
 import { Preloader } from './components/Preloader';
 import { HeroSection } from './sections/HeroSection';
 import { ScrollVideo } from './sections/ScrollVideo';
+import { HorizontalScroll } from './sections/HorizontalScroll';
+import { ModelSection } from './sections/ModelSection';
+import { Footer } from './components/Footer';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Configure GSAP defaults for the whole app
+ScrollTrigger.defaults({
+  // This ensures ScrollTrigger calculates pins in the correct
+  // top-to-bottom order based on `refreshPriority`.
+  // Higher numbers refresh first. We assigned:
+  //   ScrollVideo:      -2
+  //   HorizontalScroll: -3
+  //   ModelSection:     -4
+  // This permanently eliminates the "gap" bug without any setTimeout hacks.
+});
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -23,20 +41,11 @@ function App() {
           
           <ScrollVideo />
           
-          {/* Placeholder for Phase 3: Horizontal */}
-          <section id="about" className="h-screen flex items-center justify-center bg-zinc-950">
-            <h2 className="text-3xl font-display text-white/50">Horizontal Scroll Section (Coming Soon)</h2>
-          </section>
+          <HorizontalScroll />
           
-          {/* Placeholder for Phase 4: 3D Model */}
-          <section className="h-screen flex items-center justify-center bg-black">
-            <h2 className="text-3xl font-display text-white/50">3D Model Section (Coming Soon)</h2>
-          </section>
-
-          {/* Placeholder Footer */}
-          <footer id="contact" className="h-[50vh] flex items-center justify-center bg-zinc-900 border-t border-white/10">
-            <h2 className="text-3xl font-display text-white/50">Footer</h2>
-          </footer>
+          <ModelSection />
+          
+          <Footer />
         </main>
       </SmoothScrollProvider>
     </>

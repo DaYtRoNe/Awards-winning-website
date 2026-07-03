@@ -48,7 +48,7 @@ export const Preloader = ({ onComplete }: PreloaderProps) => {
           className="text-[15vw] md:text-[10vw] font-display font-bold leading-none text-transparent"
           style={{ WebkitTextStroke: "2px rgba(255,255,255,0.2)" }}
         >
-          awwwards.
+          KINETIC.
         </h1>
       </div>
       
