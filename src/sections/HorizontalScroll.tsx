@@ -18,7 +18,7 @@ export const HorizontalScroll = () => {
       return -(wrapperRef.current!.scrollWidth - window.innerWidth);
     };
 
-    const tween = gsap.to(wrapperRef.current, {
+    gsap.to(wrapperRef.current, {
       x: getScrollAmount,
       ease: "none",
       scrollTrigger: {

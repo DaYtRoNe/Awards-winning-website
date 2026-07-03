@@ -16,7 +16,7 @@ export const RotatingModel = () => {
     return () => window.removeEventListener('modelScroll', handleScroll);
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (!meshRef.current) return;
     
     // Time-based rotation for continuous liveliness

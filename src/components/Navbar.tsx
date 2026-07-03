@@ -31,7 +31,7 @@ export const Navbar = () => {
         // Hide on scroll down, show on scroll up
         if (self.direction === -1) {
           showAnim.play();
-        } else if (self.direction === 1 && self.scrollY > 50) {
+        } else if (self.direction === 1 && self.scroll() > 50) {
           showAnim.reverse();
         }
       }
