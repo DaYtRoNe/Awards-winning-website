@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MagneticButton } from './MagneticButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,10 +60,30 @@ export const Footer = () => {
           
           <div className="flex flex-col md:items-end justify-center space-y-4">
             <p className="text-white/50 text-sm tracking-widest uppercase mb-4">Socials</p>
-            <a href="#" className="text-xl hover:text-secondary transition-colors">Instagram</a>
-            <a href="#" className="text-xl hover:text-secondary transition-colors">Twitter (X)</a>
-            <a href="#" className="text-xl hover:text-secondary transition-colors">Awwwards</a>
-            <a href="#" className="text-xl hover:text-secondary transition-colors">LinkedIn</a>
+            <MagneticButton strength={0.3}>
+              <a href="#" className="text-xl hover:text-secondary transition-colors relative group block p-2">
+                Instagram
+                <span className="absolute left-0 bottom-1 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </MagneticButton>
+            <MagneticButton strength={0.3}>
+              <a href="#" className="text-xl hover:text-secondary transition-colors relative group block p-2">
+                Twitter (X)
+                <span className="absolute left-0 bottom-1 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </MagneticButton>
+            <MagneticButton strength={0.3}>
+              <a href="#" className="text-xl hover:text-secondary transition-colors relative group block p-2">
+                Awwwards
+                <span className="absolute left-0 bottom-1 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </MagneticButton>
+            <MagneticButton strength={0.3}>
+              <a href="#" className="text-xl hover:text-secondary transition-colors relative group block p-2">
+                LinkedIn
+                <span className="absolute left-0 bottom-1 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </MagneticButton>
           </div>
         </div>
       </div>

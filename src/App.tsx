@@ -8,6 +8,9 @@ import { ScrollVideo } from './sections/ScrollVideo';
 import { HorizontalScroll } from './sections/HorizontalScroll';
 import { ModelSection } from './sections/ModelSection';
 import { Footer } from './components/Footer';
+import { NoiseOverlay } from './components/NoiseOverlay';
+import { ScrollProgress } from './components/ScrollProgress';
+import { MarqueeBanner } from './components/MarqueeBanner';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -30,6 +33,8 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <NoiseOverlay />
+      <ScrollProgress />
       
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       
@@ -38,6 +43,8 @@ function App() {
         
         <main>
           <HeroSection />
+          
+          <MarqueeBanner />
           
           <ScrollVideo />
           

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MagneticButton } from './MagneticButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,9 +55,15 @@ export const Navbar = () => {
         </a>
         
         <nav className="hidden md:flex space-x-8">
-          <a href="#work" className="text-sm font-medium hover:text-primary transition-colors">Work</a>
-          <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">About</a>
-          <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</a>
+          <MagneticButton strength={0.5}>
+            <a href="#work" className="text-sm font-medium hover:text-primary transition-colors block p-2">Work</a>
+          </MagneticButton>
+          <MagneticButton strength={0.5}>
+            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors block p-2">About</a>
+          </MagneticButton>
+          <MagneticButton strength={0.5}>
+            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors block p-2">Contact</a>
+          </MagneticButton>
         </nav>
         
         <button className="md:hidden flex flex-col space-y-1.5 p-2">
